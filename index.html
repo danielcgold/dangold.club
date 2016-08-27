@@ -14,30 +14,153 @@
 
     body {
       margin: 0;
-      padding: 0;
+      padding: 80px 40px 40px;
       font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
       text-align: center;
+      background: linear-gradient(transparent, #e8f6ff), linear-gradient(to left, #7bf8e0, transparent), linear-gradient(to right, #e7f7b0, transparent);
+      min-height: 100vh;
+      position: relative;
+      color: rgba(0, 0, 0, .65);
     }
 
-    .page-content {
+    .hero-headline {
+      color: rgba(0, 0, 0, .2);
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .hero-description {
+      font-size: 25px;
+      font-weight: 300;
+      max-width: 520px;
+      margin: 30px auto;
+    }
+
+    .nav {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .nav span {
+      background: rgba(0, 0, 0, .15);
+      height: 4px;
+      margin-top: 3px;
+      width: 22px;
+      display: block;
+    }
+
+    .dangolds {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .dg-block {
+      position: relative;
+      display: block;
+      margin: 20px;
+    }
+
+    .dg-block:hover .one-word {
+      opacity: 1;
+    }
+
+    .dg-block:hover .the-word {
+      opacity: 1;
+    }
+
+    .one-word {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      top: 0;
+      margin: 0;
+      padding: 0;
+      color: #f1ffff;
+      opacity: 0;
+      transition: opacity .2s linear;
+    }
+
+    .one-word:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      background: rgba(0, 0, 0, .75);
+      border-radius: 50%;
+    }
+
+    .the-word {
+      display: block;
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 100%;
-      padding: 20px;
+      opacity: 0;
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: opacity .35s linear;
       transform: translate(-50%, -50%);
     }
 
-    a {
-      color: #4078c0;
+    .dangolds img {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      border: solid 10px rgba(255, 255, 255, .5);
+    }
+
+    @media (min-width: 1000px) {
+      .hero-description {
+        margin-bottom: 60px;
+      }
     }
   </style>
 </head>
 
   <body>
     <div class="page-content">
-      <h1>Be a member of the Dan&nbsp;Gold&nbsp;Club</h1>
-      <p><a href="mailto:me@danielcgold.com" target="_blank">Email to get started</a></p>
+      <h1 class="hero-headline">What is the Dan Gold Club?</h1>
+      <p class="hero-description"><strong>dangold.club</strong> is a place to connect, network, and showcase people named Dan&nbsp;Gold.</p>
+      <a class="nav"><span></span><span></span><span></span></a>
+
+      <div class="dangolds">
+        <a class="dg-block" href="#">
+          <img src="dangold.jpg" alt="Dan Gold">
+          <p class="one-word"><span class="the-word">adjective</span></p>
+        </a>
+
+        <a class="dg-block" href="#">
+          <img src="dangold.jpg" alt="Dan Gold">
+          <p class="one-word"><span class="the-word">adjective</span></p>
+        </a>
+
+        <a class="dg-block" href="#">
+          <img src="dangold.jpg" alt="Dan Gold">
+          <p class="one-word"><span class="the-word">adjective</span></p>
+        </a>
+
+        <a class="dg-block" href="#">
+          <img src="dangold.jpg" alt="Dan Gold">
+          <p class="one-word"><span class="the-word">adjective</span></p>
+        </a>
+      </div>
+
+      <div style="display: none;">
+      <span class="above-headline">wait why?</span>
+      <h1 class="headline">Why should I be interested?</h1>
+      <p>Every Dan Gold is interesting and has something new to offer to the community.</p>
+
+      <span class="above-headline">I&rsquo;m importaint</span>
+      <h1 class="headline">Can I contribute?</h1>
+      <p>Yes, Dan Gold Club is open sourced and you can contribute and make changes.</p>
+    </div>
     </div>
   </body>
 </html>
