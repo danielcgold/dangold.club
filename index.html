@@ -23,6 +23,10 @@
       color: rgba(0, 0, 0, .65);
     }
 
+    .hero {
+      margin-bottom: 30px;
+    }
+
     .hero-headline {
       color: rgba(0, 0, 0, .2);
       text-transform: uppercase;
@@ -34,21 +38,44 @@
       font-size: 25px;
       font-weight: 300;
       max-width: 520px;
-      margin: 30px auto;
+      margin: 30px auto 0;
+      line-height: 1.35;
     }
 
-    .nav {
-      position: absolute;
-      top: 20px;
-      right: 20px;
+    .hero-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 40px;
+      font-size: 14px;
+      letter-spacing: 2px;
+      font-weight: 500;
+      color: #fff;
+      text-transform: uppercase;
+      background: linear-gradient(to right, #f284d9, #7bf8e0);
+      text-decoration: none;
+      position: relative;
     }
 
-    .nav span {
-      background: rgba(0, 0, 0, .15);
-      height: 4px;
-      margin-top: 3px;
-      width: 22px;
+    .hero-button:hover:before {
+      opacity: 1;
+    }
+
+    .hero-button:before {
+      content: '';
       display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #f284d9;
+      opacity: 0;
+      transition: opacity 2s linear;
+    }
+
+    .hero-button-text {
+      position: relative;
+      z-index: 5;
     }
 
     .dangolds {
@@ -117,7 +144,7 @@
     }
 
     @media (min-width: 1000px) {
-      .hero-description {
+      .hero {
         margin-bottom: 60px;
       }
     }
@@ -126,41 +153,41 @@
 
   <body>
     <div class="page-content">
-      <h1 class="hero-headline">What is the Dan Gold Club?</h1>
-      <p class="hero-description"><strong>dangold.club</strong> is a place to connect, network, and showcase people named Dan&nbsp;Gold.</p>
-      <a class="nav"><span></span><span></span><span></span></a>
+      <div class="hero">
+        <h1 class="hero-headline">What is the Dan Gold Club?</h1>
+        <p class="hero-description"><strong>dangold.club</strong> is a place to connect, network, and showcase people named Dan&nbsp;Gold.</p>
+        <a class="hero-button share-btn" href="https://twitter.com/intent/tweet?text=hey%20%40danielcgold%2C%20I%20want%20to%20join%20the%20club!"><span class="hero-button-text">Join via tweet</span></a>
+      </div>
 
       <div class="dangolds">
         <a class="dg-block" href="#">
           <img src="dangold.jpg" alt="Dan Gold">
-          <p class="one-word"><span class="the-word">adjective</span></p>
-        </a>
-
-        <a class="dg-block" href="#">
-          <img src="dangold.jpg" alt="Dan Gold">
-          <p class="one-word"><span class="the-word">adjective</span></p>
-        </a>
-
-        <a class="dg-block" href="#">
-          <img src="dangold.jpg" alt="Dan Gold">
-          <p class="one-word"><span class="the-word">adjective</span></p>
-        </a>
-
-        <a class="dg-block" href="#">
-          <img src="dangold.jpg" alt="Dan Gold">
-          <p class="one-word"><span class="the-word">adjective</span></p>
+          <p class="one-word"><span class="the-word">@danielcgold</span></p>
         </a>
       </div>
-
-      <div style="display: none;">
-      <span class="above-headline">wait why?</span>
-      <h1 class="headline">Why should I be interested?</h1>
-      <p>Every Dan Gold is interesting and has something new to offer to the community.</p>
-
-      <span class="above-headline">I&rsquo;m importaint</span>
-      <h1 class="headline">Can I contribute?</h1>
-      <p>Yes, Dan Gold Club is open sourced and you can contribute and make changes.</p>
     </div>
-    </div>
+
+    <script>
+    // thanks http://codepen.io/sunnysingh/pen/OPxbgq?editors=1010 :)
+
+    (function(){
+
+      var shareButtons = document.querySelectorAll(".share-btn");
+
+      if (shareButtons) {
+          [].forEach.call(shareButtons, function(button) {
+          button.addEventListener("click", function(event) {
+     				var width = 650,
+                height = 450;
+
+            event.preventDefault();
+
+            window.open(this.href, 'Share Dialog', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width='+width+',height='+height+',top='+(screen.height/2-height/2)+',left='+(screen.width/2-width/2));
+          });
+        });
+      }
+
+    })();
+    </script>
   </body>
 </html>
