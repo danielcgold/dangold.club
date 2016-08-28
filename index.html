@@ -151,6 +151,16 @@
       }
     }
   </style>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-83261262-1', 'auto');
+    ga('send', 'pageview');
+  </script>
 </head>
 
   <body>
@@ -170,26 +180,25 @@
     </div>
 
     <script>
-    // thanks http://codepen.io/sunnysingh/pen/OPxbgq?editors=1010 :)
+      // thanks http://codepen.io/sunnysingh/pen/OPxbgq?editors=1010 :)
+      (function(){
 
-    (function(){
+        var shareButtons = document.querySelectorAll(".share-btn");
 
-      var shareButtons = document.querySelectorAll(".share-btn");
+        if (shareButtons) {
+            [].forEach.call(shareButtons, function(button) {
+            button.addEventListener("click", function(event) {
+       				var width = 650,
+                  height = 450;
 
-      if (shareButtons) {
-          [].forEach.call(shareButtons, function(button) {
-          button.addEventListener("click", function(event) {
-     				var width = 650,
-                height = 450;
+              event.preventDefault();
 
-            event.preventDefault();
-
-            window.open(this.href, 'Share Dialog', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width='+width+',height='+height+',top='+(screen.height/2-height/2)+',left='+(screen.width/2-width/2));
+              window.open(this.href, 'Share Dialog', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width='+width+',height='+height+',top='+(screen.height/2-height/2)+',left='+(screen.width/2-width/2));
+            });
           });
-        });
-      }
+        }
 
-    })();
+      })();
     </script>
   </body>
 </html>
