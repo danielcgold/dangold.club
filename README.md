@@ -1,2 +1,2 @@
 # dangold.club
-A collection of websites by dan gold's
+A club for Dan Gold
